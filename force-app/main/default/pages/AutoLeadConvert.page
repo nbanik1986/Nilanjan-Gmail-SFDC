@@ -1,0 +1,24 @@
+<apex:page standardController="Lead" recordSetVar="leadRecords" extensions="AutoLeadController" lightningStylesheets="true">
+ <apex:slds />
+ 
+ <apex:pageblock title="Selected Records">
+ 
+ <apex:pageBlockTable value="{!selectedLeadRecords}" var="lead">
+ 
+ <apex:column headerValue="Name" value="{!lead.Name}"/>
+  <apex:column headerValue="Email" value="{!lead.Email}"/>
+   <apex:column headerValue="Phone" value="{!lead.Phone}"/>
+    <apex:column headerValue="Rating" value="{!lead.Rating}"/>
+   </apex:pageBlockTable>
+ </apex:pageblock>
+ 
+ <apex:pageblock title="Convert Leads">
+ <flow:interview name="List_View_of_Lead_Flow"
+ buttonLocation="bottom"
+ buttonStyle="slds-button slds-button_brand"
+ finishLocation="{!URLFOR($Action.Lead.Tab,$ObjectType.Lead)}">
+ <apex:param name="varLeadRecordIds" value="{!leadIdsSet}"/>
+ <apex:param name="varLeadRecords" value="{!selectedLeadRecords}"/>
+ </flow:interview>
+ </apex:pageblock>
+</apex:page>

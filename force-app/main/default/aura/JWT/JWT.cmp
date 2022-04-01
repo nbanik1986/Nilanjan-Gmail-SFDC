@@ -1,0 +1,43 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" controller="JWTAuthFlow" >
+	
+    <aura:attribute name="iss" type="string"/>
+    <aura:attribute name="sub" type="string"/>
+    <aura:attribute name="aud" type="string"/>
+    <aura:attribute name="endpoint" type="string"/>
+    <aura:attribute name="baccesstoken" type="boolean" default="false" />
+    
+        <aura:attribute name="jwtaccesstoken" type="string"/>
+    <Lightning:card title="JWT Token Details" iconName="standard:entity">
+        <aura:set attribute="actions">
+            <lightning:button label="Get New Access token" onclick="{!c.getAccessToken}" />
+        </aura:set>
+    <lightning:layout multipleRows="true">
+            <lightning:layoutItem size="12"  >
+                <lightning:input name="input1" label="Issuer/Consumer Key" value="{!v.iss}" />
+            </lightning:layoutItem >
+            <lightning:layoutItem size="12" >
+                <lightning:input name="input2" label="Subject/Server Org User Name" value="{!v.sub}" />
+            </lightning:layoutItem>
+            <lightning:layoutItem size="12" >
+                <lightning:input name="input3" label="Audience/Salesforce URL" value="{!v.aud}" />
+            </lightning:layoutItem>
+            <lightning:layoutItem size="12" >
+                <lightning:input name="input4" label="End Point/Token URL" value="{!v.endpoint}" />
+            </lightning:layoutItem>
+        </lightning:layout>
+    </Lightning:card>
+    
+    <aura:if isTrue="{!v.baccesstoken}">
+    
+    <lightning:card title="Access Token Details" iconName="standard:record">
+    <lightning:layout multipleRows="true">
+        
+         <lightning:layoutItem size="12"  >
+                <lightning:input name="jwtaccesstoken" label="JWT Access Token" value="{!v.jwtaccesstoken}" />
+            </lightning:layoutItem >
+        </lightning:layout>
+    
+    </lightning:card>
+        
+        </aura:if>
+</aura:component>
