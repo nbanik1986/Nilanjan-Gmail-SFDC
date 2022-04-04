@@ -5,7 +5,7 @@ Public List<Lead> selectedLeadRecords{get;set;}
 
 public AutoLeadController(ApexPages.StandardsetController setController)
 {
-    //added by nilanjan
+    //added by nilanjan modified
 leadIdsSet= new List<String>();
 selectedLeadRecords=(Lead[])setController.getselected();
 For(sObject obj :setController.getselected() ){
