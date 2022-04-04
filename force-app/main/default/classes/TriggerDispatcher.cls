@@ -5,6 +5,7 @@ public static void run(TriggerInterface handler,system.TriggerOperation operatio
 switch on operationtype{
 
 WHEN BEFORE_INSERT{
+
     
 
 handler.beforeInsert(Trigger.new);
