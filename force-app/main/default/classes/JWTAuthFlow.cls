@@ -21,6 +21,7 @@ public class JWTAuthFlow {
         jsonBody.writeNumberField('exp', DateTime.now().addMinutes(3).getTime());
         jsonBody.writeEndObject();
         String encodedBody=EncodingUtil.base64Encode(Blob.valueOf(jsonBody.getAsString()));
+\
         String jwtRequest=encodedheader+'.'+encodedBody;
         
         Blob key=Encodingutil.base64Decode(privateKey);
