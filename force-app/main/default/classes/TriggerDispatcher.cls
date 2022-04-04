@@ -6,7 +6,6 @@ switch on operationtype{
 
 WHEN BEFORE_INSERT{
 
-    
 
 handler.beforeInsert(Trigger.new);
 
